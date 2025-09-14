@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Quest</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Dentro del <head> de index.html -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <script
+    src="https://unpkg.com/leaflet/dist/leaflet.js">
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">🏔️ Peak Quest</div>
+    <nav>
+      <ul>
+        <li><a href="#picos">Subir Picos</a></li>
+        <li><a href="#vias">Vías Ferratas</a></li>
+        <li><a href="#esqui">Esquí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Descubre la aventura en la montaña</h1>
+    <p>Sube cumbres, explora vías ferratas y disfruta del esquí con Peak Quest.</p>
+    <a href="#picos" class="btn">Explorar</a>
+  </section>
+
+  <main>
+    <section id="picos" class="section">
+      <h2>Subir Picos</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="img/pico1.jpg" alt="Pico 1">
+          <h3>Pico Ejemplo 1</h3>
+          <p>Rutas y consejos para llegar a la cima.</p>
+        </div>
+        <div class="card">
+          <img src="img/pico2.jpg" alt="Pico 2">
+          <h3>Pico Ejemplo 2</h3>
+          <p>Dificultad moderada con vistas increíbles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vias" class="section">
+      <h2>Vías Ferratas</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="img/via1.jpg" alt="Vía Ferrata 1">
+          <h3>Vía Ferrata A</h3>
+          <p>Perfecta para principiantes.</p>
+        </div>
+        <div class="card">
+          <img src="img/via2.jpg" alt="Vía Ferrata 2">
+          <h3>Vía Ferrata B</h3>
+          <p>Para escaladores experimentados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="esqui" class="section">
+      <h2>Esquí</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="img/esqui1.jpg" alt="Esquí 1">
+          <h3>Estación Norte</h3>
+          <p>Pistas rojas y azules.</p>
+        </div>
+        <div class="card">
+          <img src="img/esqui2.jpg" alt="Esquí 2">
+          <h3>Estación Sur</h3>
+          <p>Ideal para familias.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mapa" class="section">
+      <h2>Mapa Interactivo</h2>
+      <div id="mapid"></div>
+    </section>
+
+    <section id="contacto" class="section contacto">
+      <h2>Contacto</h2>
+      <p>Escríbenos para más información: <a href="mailto:info@peakquest.com">info@peakquest.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Peak Quest - Aventuras en la Montaña</p>
+  </footer>
+
+  <script>
+    // Inicializamos el mapa centrado en coordenadas (ej. Pirineos)
+    var map = L.map('mapid').setView([42.5, -0.5], 8);
+
+    // Añadimos capa de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Marcadores de ejemplo
+    var marker1 = L.marker([42.55, -0.45]).addTo(map)
+      .bindPopup('<b>Pico Ejemplo 1</b><br>Ruta clásica').openPopup();
+
+    var marker2 = L.marker([42.6, -0.6]).addTo(map)
+      .bindPopup('<b>Vía Ferrata A</b><br>Dificultad moderada');
+
+    // Si quieres más marcadores, repite el patrón de arriba
+  </script>
+
+</body>
+</html>
